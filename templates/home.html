@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="display-4">🐶 Pet Adoption Center</h1>
+
+  <p><a class="btn btn-primary mb-3" href="{{ url_for('add_pet') }}">Add a New Pet</a></p>
+
+  <h2>Available Pets</h2>
+  <ul class="list-group mb-4">
+    {% for pet in available_pets %}
+      <li class="list-group-item">
+        <a href="{{ url_for('edit_pet', pet_id=pet.id) }}">
+          <strong>{{ pet.name }}</strong>
+        </a> - {{ pet.species }}
+        {% if pet.photo_url %}
+          <br><img src="{{ pet.photo_url }}" height="100">
+        {% endif %}
+        <span class="badge bg-success">Available</span>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Adopted / Unavailable Pets</h2>
+  <ul class="list-group">
+    {% for pet in unavailable_pets %}
+      <li class="list-group-item">
+        <a href="{{ url_for('edit_pet', pet_id=pet.id) }}">
+          <strong>{{ pet.name }}</strong>
+        </a> - {{ pet.species }}
+        {% if pet.photo_url %}
+          <br><img src="{{ pet.photo_url }}" height="100">
+        {% endif %}
+        <span class="badge bg-secondary">Not Available</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+
+

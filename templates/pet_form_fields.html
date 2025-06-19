@@ -1,0 +1,38 @@
+<div class="mb-3">
+  {{ form.photo_url.label(class="form-label") }}
+  {{ form.photo_url(class="form-control") }}
+</div>
+
+{% if form.name %}
+  <div class="mb-3">
+    {{ form.name.label(class="form-label") }}
+    {{ form.name(class="form-control") }}
+  </div>
+{% endif %}
+
+{% if form.species %}
+  <div class="mb-3">
+    {{ form.species.label(class="form-label") }}
+    {{ form.species(class="form-select") }}
+  </div>
+{% endif %}
+
+{% if form.age %}
+  <div class="mb-3">
+    {{ form.age.label(class="form-label") }}
+    {{ form.age(class="form-control") }}
+  </div>
+{% endif %}
+
+<div class="mb-3">
+  {{ form.photo_file.label(class="form-label") }}
+  {{ form.photo_file(class="form-control") }}
+</div>
+
+
+{% if form.available %}
+  <div class="form-check mb-3">
+    {{ form.available(class="form-check-input") }}
+    {{ form.available.label(class="form-check-label") }}
+  </div>
+{% endif %}

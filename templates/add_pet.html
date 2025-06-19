@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Add a New Pet</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    {% include "pet_form_fields.html" %}
+    <button type="submit" class="btn btn-success">Add Pet</button>
+  </form>
+{% endblock %}
+
+
